@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "jQuery Cycle";
+}
+
+<h2>jQuery Cycle</h2>
+
+<div class="row"  >
+    <div class="col-md-3 text-center" style="direction:rtl" dir="rtl">
+        <div>
+            اطلاعیه ها
+        </div>
+        <div class="glyphicon glyphicon-arrow-up" id="next"></div>
+        <div id="slideshow" style="direction:rtl" dir="rtl">
+            <p class="text-center">
+                اطلاعیه شماره 1
+            </p>
+            <p class="text-center">
+                اطلاعیه شماره 2
+            </p>
+        </div>
+        <div class="glyphicon glyphicon-arrow-down" id="prev"></div>
+    </div>
+</div>
+@*<div>
+        <a href="#" class="arrow" id="prev">
+            <img src="Images/arrow-down.png" style="outline: none;" alt="نکته بعدی" />
+        </a>
+    </div>*@
+
+
+
+@section Scripts{
+    <script src="~/Scripts/Meh/jQueryCycle/jquery.cycle.all.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#slideshow').cycle(
+                {
+                    fx: 'scrollUp',
+                    prev: '#prev',
+                    next: '#next',
+                    height: 100,
+                    pauseOnPagerHover: 1
+                }
+                );
+        })
+    </script>
+}

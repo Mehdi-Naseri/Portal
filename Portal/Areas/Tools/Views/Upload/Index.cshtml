@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Portal.DomainClasses.Models.Upload>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Upload", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-bordered table-striped table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RandomName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UploadDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContentLength)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContentType)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UploadedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FileName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RandomName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UploadDateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContentLength)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContentType)
+                </td>
+                <td>
+                    @Html.ActionLink("Download", "Download", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-default" })
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @*<text> | </text>*@
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-info" })
+                        @: @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                }
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}

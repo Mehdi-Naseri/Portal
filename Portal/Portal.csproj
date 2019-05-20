@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{97FACB2D-400E-4B78-B38D-38F872C5455B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Portal</RootNamespace>
+    <AssemblyName>Portal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.1.0.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.1.0.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.0.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.0.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\WebsiteVisitorsController.cs" />
+    <Compile Include="Areas\Tools\Controllers\ToolsController.cs" />
+    <Compile Include="Areas\Tools\Controllers\UploadController.cs" />
+    <Compile Include="Areas\Tools\Controllers\WeblogCommentController.cs" />
+    <Compile Include="Areas\Tools\Controllers\WeblogController.cs" />
+    <Compile Include="Areas\Tools\ToolsAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Meh\BootstrapDateTimePicker\bootstrap-datetimepicker.css" />
+    <Content Include="Content\Meh\BootstrapDateTimePicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\Meh\jQueryCycle\arrow-down.png" />
+    <Content Include="Content\Meh\MEH.css" />
+    <Content Include="Content\Meh\NivoSlider\nivo-slider.css" />
+    <Content Include="Content\Meh\NivoSlider\themes\bar\arrows.png" />
+    <Content Include="Content\Meh\NivoSlider\themes\bar\bar.css" />
+    <Content Include="Content\Meh\NivoSlider\themes\bar\bullets.png" />
+    <Content Include="Content\Meh\NivoSlider\themes\bar\loading.gif" />
+    <Content Include="Content\Meh\NivoSlider\themes\dark\arrows.png" />
+    <Content Include="Content\Meh\NivoSlider\themes\dark\bullets.png" />
+    <Content Include="Content\Meh\NivoSlider\themes\dark\dark.css" />
+    <Content Include="Content\Meh\NivoSlider\themes\dark\loading.gif" />
+    <Content Include="Content\Meh\NivoSlider\themes\default\arrows.png" />
+    <Content Include="Content\Meh\NivoSlider\themes\default\bullets.png" />
+    <Content Include="Content\Meh\NivoSlider\themes\default\default.css" />
+    <Content Include="Content\Meh\NivoSlider\themes\default\loading.gif" />
+    <Content Include="Content\Meh\NivoSlider\themes\light\arrows.png" />
+    <Content Include="Content\Meh\NivoSlider\themes\light\bullets.png" />
+    <Content Include="Content\Meh\NivoSlider\themes\light\light.css" />
+    <Content Include="Content\Meh\NivoSlider\themes\light\loading.gif" />
+    <Content Include="Content\Meh\PersianDatePicker\jquery-ui-1.8.14.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\animated-overlay.gif" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery-ui.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.all.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.base.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.button.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.core.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.menu.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.slider.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.theme.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\Meh\jQueryThemes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\Meh\PersianDateTimePicker\jquery-ui-datetimepicker.min.css" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\jquery-ui-1.9.2.custom.css" />
+    <Content Include="Content\Meh\PersianDateTimePicker\Redmond\jquery-ui-1.9.2.custom.min.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\aqua\active-bg.gif" />
+    <Content Include="Content\PersianDateTimePicker2\skins\aqua\dark-bg.gif" />
+    <Content Include="Content\PersianDateTimePicker2\skins\aqua\hover-bg.gif" />
+    <Content Include="Content\PersianDateTimePicker2\skins\aqua\menuarrow.gif" />
+    <Content Include="Content\PersianDateTimePicker2\skins\aqua\normal-bg.gif" />
+    <Content Include="Content\PersianDateTimePicker2\skins\aqua\rowhover-bg.gif" />
+    <Content Include="Content\PersianDateTimePicker2\skins\aqua\status-bg.gif" />
+    <Content Include="Content\PersianDateTimePicker2\skins\aqua\theme.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\aqua\title-bg.gif" />
+    <Content Include="Content\PersianDateTimePicker2\skins\aqua\today-bg.gif" />
+    <Content Include="Content\PersianDateTimePicker2\skins\cal.png" />
+    <Content Include="Content\PersianDateTimePicker2\skins\calendar-blue.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\calendar-blue2.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\calendar-brown.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\calendar-green.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\calendar-system.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\calendar-tas.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\calendar-win2k-1.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\calendar-win2k-2.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\calendar-win2k-cold-1.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\calendar-win2k-cold-2.css" />
+    <Content Include="Content\PersianDateTimePicker2\skins\menuarrow.gif" />
+    <Content Include="Content\PersianDateTimePicker2\skins\menuarrow2.gif" />
+    <Content Include="favicon.ico" />
+    <Content Include="Files\Icon\FavoriteIcon.ico" />
+    <Content Include="Files\Icon\MyWebsiteLogo.PNG" />
+    <Content Include="Files\Icon\Ring.png" />
+    <Content Include="Files\Images\header.jpg" />
+    <Content Include="Files\Images\Mehdi.jpg" />
+    <Content Include="Files\Images\NivoSlider\nemo.jpg" />
+    <Content Include="Files\Images\NivoSlider\toystory.jpg" />
+    <Content Include="Files\Images\NivoSlider\up.jpg" />
+    <Content Include="Files\Images\NivoSlider\walle.jpg" />
+    <Content Include="Files\Images\Pic2Resize.gif" />
+    <Content Include="Files\Upload\Files\dsf555lo.lxg.gif" />
+    <Content Include="Files\Upload\Files\mlcfth2o.tfl.gif" />
+    <Content Include="Files\Upload\Images\Empty.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Notes.txt" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Files\Upload\Files\2j3aeeaz.dti" />
+    <Content Include="Files\Upload\Files\h14lxaq5.2bb" />
+    <Content Include="Files\Upload\Files\kpsuexv1.2ms" />
+    <Content Include="Files\Upload\Files\s2qcih0b.x5y" />
+    <Content Include="Files\Upload\Files\v2ak34jn.2ts" />
+    <Content Include="Files\Upload\Files\zmdrlc1m.3pj" />
+    <Content Include="Content\Meh\NivoSlider\themes\dark\.DS_Store" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Tools\Views\web.config" />
+    <Content Include="Areas\Tools\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\PersianDateTimePicker.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\BootstrapDateTimePicker.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\BootstrapDateTimePicker1.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\PersianDateTimePicker2.cshtml" />
+    <Content Include="Areas\Tools\Views\Temp\Create.cshtml" />
+    <Content Include="Areas\Tools\Views\Temp\Delete.cshtml" />
+    <Content Include="Areas\Tools\Views\Temp\Details.cshtml" />
+    <Content Include="Areas\Tools\Views\Temp\Edit.cshtml" />
+    <Content Include="Areas\Tools\Views\Temp\Index.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\jQueryCycle.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\iFrame.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Meh\BootstrapDateTimePicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\Meh\BootstrapDateTimePicker\locales.js" />
+    <Content Include="Scripts\Meh\BootstrapDateTimePicker\locales.min.js" />
+    <Content Include="Scripts\Meh\BootstrapDateTimePicker\moment-with-locales.js" />
+    <Content Include="Scripts\Meh\BootstrapDateTimePicker\moment-with-locales.min.js" />
+    <Content Include="Scripts\Meh\BootstrapDateTimePicker\moment.min.js" />
+    <Content Include="Scripts\Meh\CoolClock\coolclock.js" />
+    <Content Include="Scripts\Meh\CoolClock\excanvas.js" />
+    <Content Include="Scripts\Meh\CoolClock\moreskins.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-ar.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-bg.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-bg1251.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-cat.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-cn.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-cs.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-da.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-de.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-dk.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-el.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-en.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-es.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-fa.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-fi.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-fr.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-gl.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-he.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-hr.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-hr1250.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-hu.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-id.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-is.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-it.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-ja.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-kr.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-lt.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-mne.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-nl.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-no.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-pl.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-pt-br.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-pt.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-ro.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-ru.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-sk.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-sr-latin.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-sr.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-sv.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-th.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-tr.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-tw.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-ua.js" />
+    <Content Include="Scripts\Meh\jqGrid\i18n\grid.locale-vi.js" />
+    <Content Include="Scripts\Meh\jqGrid\jquery.jqGrid.js" />
+    <Content Include="Scripts\Meh\jqGrid\jquery.jqGrid.min.js" />
+    <Content Include="Scripts\Meh\jQueryCycle\jquery.cycle.all.js" />
+    <Content Include="Scripts\Meh\jQueryUI\jquery-ui-1.10.3.js" />
+    <Content Include="Scripts\Meh\jQueryUI\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\Meh\jquery.unobtrusive\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\Meh\jquery.unobtrusive\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\Meh\MehJavaScript.js" />
+    <Content Include="Scripts\Meh\NivoSlider\jquery.nivo.slider.js" />
+    <Content Include="Scripts\Meh\NivoSlider\jquery.nivo.slider.pack.js" />
+    <Content Include="Scripts\Meh\PersianDatePicker\jquery-1.6.2.min.js" />
+    <Content Include="Scripts\Meh\PersianDatePicker\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\Meh\PersianDatePicker\jquery.ui.datepicker-cc.all.min.js" />
+    <Content Include="Scripts\Meh\PersianDateTimePicker2\calendar-en.js" />
+    <Content Include="Scripts\Meh\PersianDateTimePicker2\calendar-fa.js" />
+    <Content Include="Scripts\Meh\PersianDateTimePicker2\calendar-setup.js" />
+    <Content Include="Scripts\Meh\PersianDateTimePicker2\calendar.js" />
+    <Content Include="Scripts\Meh\PersianDateTimePicker2\jalali.js" />
+    <Content Include="Scripts\Meh\PersianDateTimePicker\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\Meh\PersianDateTimePicker\jquery-ui-1.9.2.min.js" />
+    <Content Include="Scripts\Meh\PersianDateTimePicker\jquery-ui-datetimepicker.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\AddUsertoRole.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CreateRole.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\CreateUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\DeleteRole.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\DeleteUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\DeleteUserInRole.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditRole.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\EditUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\PortalRoles.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\PortalUsers.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\PortalUsersInRoles.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\AjaxBeginForm.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\AjaxjQuery.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\AjaxjQueryPartialView.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\Blog.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\Clock.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\DNS.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\FacebookLike.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\FinishedTools.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\GoogleMap.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\GooglePlus.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\Index.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\jQueryUI.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\MouseOverResizeImage.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\PersianDatePicker.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\Ping.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\RedirectPage.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\RSS.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\Search.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\SendMail.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\ServerInformation.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\SlideShow.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\Test1.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\Test2.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\UsersInformation.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\Video.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\VisitorsIP.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\VisitorsLocation.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\Weather.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\WebTools.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\_AjaxjQueryPartialView.cshtml" />
+    <Content Include="Areas\Tools\Views\Upload\Create.cshtml" />
+    <Content Include="Areas\Tools\Views\Upload\Delete.cshtml" />
+    <Content Include="Areas\Tools\Views\Upload\Details.cshtml" />
+    <Content Include="Areas\Tools\Views\Upload\Edit.cshtml" />
+    <Content Include="Areas\Tools\Views\Upload\Index.cshtml" />
+    <Content Include="Areas\Tools\Views\Weblog\Create.cshtml" />
+    <Content Include="Areas\Tools\Views\Weblog\Delete.cshtml" />
+    <Content Include="Areas\Tools\Views\Weblog\Details.cshtml" />
+    <Content Include="Areas\Tools\Views\Weblog\Edit.cshtml" />
+    <Content Include="Areas\Tools\Views\Weblog\Index.cshtml" />
+    <Content Include="Areas\Tools\Views\Weblog\Search.cshtml" />
+    <Content Include="Areas\Tools\Views\Weblog\Test.cshtml" />
+    <Content Include="Areas\Tools\Views\Weblog\_SearchWeblog.cshtml" />
+    <Content Include="Areas\Tools\Views\WeblogComment\CommentsAll.cshtml" />
+    <Content Include="Areas\Tools\Views\WeblogComment\Create.cshtml" />
+    <Content Include="Areas\Tools\Views\WeblogComment\Delete.cshtml" />
+    <Content Include="Areas\Tools\Views\WeblogComment\Details.cshtml" />
+    <Content Include="Areas\Tools\Views\WeblogComment\Edit.cshtml" />
+    <Content Include="Areas\Tools\Views\WeblogComment\Index.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\Forum.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\ChangeCSS.cshtml" />
+    <Content Include="Areas\Admin\Views\WebsiteVisitors\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\WebsiteVisitors\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\WebsiteVisitors\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\WebsiteVisitors\Index.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\SlideShowBootstrap.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\BootstrapModal.cshtml" />
+    <Content Include="Areas\Tools\Views\Tools\BootstrapModalAjax.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Tools\Models\" />
+    <Folder Include="Areas\Tools\Views\Shared\" />
+    <Folder Include="Content\Meh\PersianDateTimePicker2\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Resources.fa.resx" />
+    <EmbeddedResource Include="Resources\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Portal.CommonClasses\Portal.CommonLibrary.csproj">
+      <Project>{778d9e3d-72a3-4dca-872f-f01160dfc8ad}</Project>
+      <Name>Portal.CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.DataLayer\Portal.DataLayer.csproj">
+      <Project>{e4504696-38b6-45ad-b6f1-e55e2063fd3e}</Project>
+      <Name>Portal.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Portal.DomainClasses\Portal.DomainClasses.csproj">
+      <Project>{6130ad92-a4a7-424a-80ab-d9266f27659f}</Project>
+      <Name>Portal.DomainClasses</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>10708</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:10708/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

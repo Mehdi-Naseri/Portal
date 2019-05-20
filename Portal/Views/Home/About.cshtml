@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<hr />
+<div>
+    <article class="col-sm-8">
+        <h3>Website Features:</h3>
+        <ul>
+            <li>Use SQL Server Database.</li>
+            <li>Weblog</li>
+            <li>Weblog Comment</li>
+            <li>File Server.</li>
+            <li>JavaScript (MouseOverResizeImage)</li>
+            <li>Server & User Information.</li>
+            <li>Image Strip.</li>
+            <li>Google Map.</li>
+            <li>RSS</li>
+            <li>Favorite Icon.</li>
+            <li>Paging.</li>
+            <li>Cashing.</li>
+            <li>AoutoComplete (with Json and Jquery).</li>
+            <li>OpenID and OAuth. (Google)</li>
+            <li>
+                CSS:
+                <ul>
+                    <li>linear-gradiant</li>
+                    <li>radious Edges</li>
+                </ul>
+            </li>
+            <li>Change CSS for optimized two language.</li>
+            <li>drop down Menu added.</li>
+            <li>Elmah</li>
+            <li>
+                Globalization:
+                <ul>
+                    <li>1)URL</li>
+                    <li>2)Cookie</li>
+                    <li>3)UserLanguages</li>
+                    <li>4)Default (en)</li>
+                </ul>
+            </li>
+            <li>jqGrid</li>
+            <li>Send Mail</li>
+            <li>Ping</li>
+            <li>DNS</li>
+            <li>Search</li>
+            <li>Users Management </li>
+            <li>Role Management</li>
+            <li>Persian Date Picker</li>
+            <li>Ajax + Jquery + Json</li>
+            <li>Ajax.BeginForm + Json </li>
+            <li>jQuery UI</li>
+            <li>Save & Retrieve HTML tags into Database.</li>
+            <li>Proxy Page</li>
+            <li>Java Script Clock</li>
+            <li>jQuery SlideShow</li>
+            <li>HTML5 Video</li>
+        </ul>
+    </article>
+
+    <aside class="col-sm-4">
+        <h3>@ViewBag.Message</h3>
+        <p>
+            I am a human from the Earth.<br />
+            They named me Mehdi.<br />
+            Nice to meet you.<br />
+        </p>
+
+        <div id="StripImage"></div>
+    </aside>
+</div>
+@*<aside>
+        <h3>Contents:</h3>
+        <ul>
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Weblog", "Index", "Weblog")</li>
+            <li>@Html.ActionLink("Upload", "Index", "Upload")</li>
+            <li>@Html.ActionLink("WebTools", "WebTools", "Tools")</li>
+            <li>@Html.ActionLink("ServerInformation", "ServerInformation", "Tools")</li>
+            <li>@Html.ActionLink("UserInformation", "UserInformation", "Tools")</li>
+            <li>@Html.ActionLink("Map", "GoogleMap", "Tools")</li>
+            <li>@Html.ActionLink("RSS", "RSS", "Tools")</li>
+            <li>@Html.ActionLink("Tools", "Index", "Tools")</li>
+            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+        </ul>
+    </aside>*@
+
+@section scripts{
+    <script src="~/Scripts/Meh/MehJavaScript.js"></script>
+    <script type="text/javascript">
+        var imgData = {
+            url: "/Files/Images/Mehdi.jpg",
+            width: 221,
+            height: 288
+        };
+        imageStripsMaker({
+            img: imgData,
+            strips: 16,
+            delay: 0.1,
+            time: 2,
+            direction: "random",
+            addIn: document.getElementById("StripImage")
+        });
+    </script>
+}

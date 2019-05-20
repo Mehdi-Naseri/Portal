@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "SlideShow";
+}
+
+<h2>SlideShow</h2>
+<hr/>
+
+<div class="slider-wrapper theme-default">
+    <div id="slider" class="nivoSlider">
+        <img src="~/Files/Images/NivoSlider/toystory.jpg" data-thumb="images/toystory.jpg" alt="" />
+        <a href="..">
+            <img src="~/Files/Images/NivoSlider/up.jpg" data-thumb="images/up.jpg" alt="" title="Mehdi@Naseri.Net" /></a>
+        <img src="~/Files/Images/NivoSlider/walle.jpg" data-thumb="images/walle.jpg" alt="" data-transition="slideInLeft" />
+        <img src="~/Files/Images/NivoSlider/nemo.jpg" data-thumb="images/nemo.jpg" alt="" title="#htmlcaption" />
+    </div>
+    <div id="htmlcaption" class="nivo-html-caption">
+        <strong>This</strong> slide show designed by <a href="mailto:Mehdi@Naseri.Net"><em>Mehdi Naseri</em></a>. 
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Meh/NivoSlider/jquery.nivo.slider.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#slider').nivoSlider();
+        });
+    </script>
+}
+@section styles{
+    <link href="~/Content/Meh/NivoSlider/themes/default/default.css" rel="stylesheet"  media="screen"/>
+    <link href="~/Content/Meh/NivoSlider/themes/light/light.css" rel="stylesheet"  media="screen"/>
+    <link href="~/Content/Meh/NivoSlider/themes/dark/dark.css" rel="stylesheet"  media="screen"/>
+    <link href="~/Content/Meh/NivoSlider/themes/bar/bar.css" rel="stylesheet"  media="screen"/>
+    <link href="~/Content/Meh/NivoSlider/nivo-slider.css" rel="stylesheet"  media="screen"/>
+}

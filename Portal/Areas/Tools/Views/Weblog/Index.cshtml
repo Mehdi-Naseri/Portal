@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Portal.DomainClasses.Models.WeblogPost>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("New Post", "Create", null, new { @class = "btn btn-info" })
+    }
+    @Html.ActionLink("Search", "Search", null, new { @class = "btn btn-info" })
+</p>
+
+@foreach (var item in Model)
+{
+    <div @*id="weblogPost"*@ class="panel panel-info">
+        <h2 class="panel-heading"> @Html.DisplayFor(modelItem => item.Title)<br /></h2>
+        <p class="panel-body">
+            @Html.Raw(item.PostContent.Replace(Environment.NewLine, "<br/>"))
+        </p>
+        @Html.ActionLink("More...", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Comment", "Index", "WeblogComment", new { WeblogPostId = item.Id }, new { @class = "btn btn-success pull-right" })
+
+        <div class="panel-footer">
+
+
+            <p class="label label-info ">
+                Writer: @Html.DisplayFor(modelItem => item.Writer)
+            </p>
+            &nbsp;
+            <p class="label label-info">
+                @Html.DisplayFor(modelItem => item.PostDateTime)
+            </p>
+            <p>
+                @if (User.IsInRole("Admin"))
+                {
+                    <br />
+                    @Html.ActionLink("Edit", "Edit", new { Id = item.Id }, new { @class = "btn btn-info" })
+                    @:
+                    @Html.ActionLink("Delete", "Delete", new { Id = item.Id }, new { @class = "btn btn-danger" })
+                }
+            </p>
+        </div>
+    </div>
+}
+
+<br />
+<div class="row">
+    <div class="btn-group col-md-4 col-md-offset-4">
+        @if (ViewBag.LastPageIndex == 1 || ViewBag.LastPageIndex == 0)
+        {
+            <span class="btn btn-default glyphicon glyphicon-fast-backward disabled"></span>
+            <span class="btn btn-default glyphicon glyphicon-backward disabled"></span>
+            @Html.ActionLink(string.Format("Page {0} of {1}", (int)(ViewBag.CurrentPageIndex), (int)(ViewBag.LastPageIndex)), "Index", new { CurrentPageIndex = ViewBag.CurrentPageIndex }, new { @class = "btn btn-default" })
+            <span class="btn btn-default glyphicon glyphicon-forward disabled"></span>
+            <span class="btn btn-default glyphicon glyphicon-fast-forward disabled"></span>
+        }
+        else if (ViewBag.CurrentPageIndex == 1)
+        {
+            <span class="btn btn-default glyphicon glyphicon-fast-backward disabled"></span>
+            <span class="btn btn-default glyphicon glyphicon-backward disabled"></span>
+            @Html.ActionLink(string.Format("Page {0} of {1}", (int)(ViewBag.CurrentPageIndex), (int)(ViewBag.LastPageIndex)), "Index", new { CurrentPageIndex = ViewBag.CurrentPageIndex }, new { @class = "btn btn-default" })
+            @Html.ActionLink("", "Index", new { CurrentPageIndex = ViewBag.CurrentPageIndex + 1 }, new { @class = "btn btn-default glyphicon glyphicon-forward" })
+            @Html.ActionLink("", "Index", new { CurrentPageIndex = ViewBag.LastPageIndex }, new { @class = "btn btn-default glyphicon glyphicon-fast-forward" })
+        }
+        else if (ViewBag.CurrentPageIndex == ViewBag.LastPageIndex)
+        {
+            @Html.ActionLink("", "Index", new { CurrentPageIndex = 1 }, new { @class = "btn btn-default glyphicon glyphicon-fast-backward" })
+            @Html.ActionLink("", "Index", new { CurrentPageIndex = ViewBag.CurrentPageIndex - 1 }, new { @class = "btn btn-default glyphicon glyphicon-backward" })
+            @Html.ActionLink(string.Format("Page {0} of {1}", (int)(ViewBag.CurrentPageIndex), (int)(ViewBag.LastPageIndex)), "Index", new { CurrentPageIndex = ViewBag.CurrentPageIndex }, new { @class = "btn btn-default" })
+            <span class="btn btn-default glyphicon glyphicon-forward disabled"></span>
+            <span class="btn btn-default glyphicon glyphicon-fast-forward disabled"></span>
+        }
+        else
+        {
+            @Html.ActionLink("", "Index", new { CurrentPageIndex = 1 }, new { @class = "btn btn-default glyphicon glyphicon-fast-backward" })
+            @Html.ActionLink("", "Index", new { CurrentPageIndex = ViewBag.CurrentPageIndex - 1 }, new { @class = "btn btn-default glyphicon glyphicon-backward" })
+            @Html.ActionLink(string.Format("Page {0} of {1}", (int)(ViewBag.CurrentPageIndex), (int)(ViewBag.LastPageIndex)), "Index", new { CurrentPageIndex = ViewBag.CurrentPageIndex }, new { @class = "btn btn-default" })
+            @Html.ActionLink("", "Index", new { CurrentPageIndex = ViewBag.CurrentPageIndex + 1 }, new { @class = "btn btn-default glyphicon glyphicon-forward" })
+            @Html.ActionLink("", "Index", new { CurrentPageIndex = ViewBag.LastPageIndex }, new { @class = "btn btn-default" })
+        }
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Scripts/Meh/MehJavaScript.js"></script>
+}

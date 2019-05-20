@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Ping";
+}
+
+<h2>Ping</h2>
+
+<form class="form-inline">
+    <input type="text" id="Text2Ping" name="Text2Ping" placeholder="Ex: google.com" class="form-control" />
+    <input type="submit" id="SubmitPing" name="SubmitPing" value="Ping" class="btn btn-primary" />
+</form>
+
+<div id="reslutPing"></div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('#SubmitPing').click(function () {
+                var form = $(this).parent("form");
+                $.ajax({
+                    type: "POST",
+                    url: form.attr('action'),
+                    data: form.serialize()
+                })
+                .success(function (JsonResult) {
+                    $('#reslutPing').replaceWith('<div id="reslutPing">' + JsonResult + '</div>');
+                    //alert("Finished Successfuly");
+                })
+                .error(function () {
+                    alert("Error");
+                });
+                return false;
+            });
+        });
+    </script>
+}

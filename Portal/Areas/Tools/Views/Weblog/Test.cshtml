@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Portal.DomainClasses.Models.WeblogPost>
+
+@{
+    ViewBag.Title = "Test";
+}
+
+<script src="~/Scripts/Meh/MehJavaScript.js"></script>
+
+<h2>Paged</h2>
+
+<p>
+    @Html.ActionLink("New Post", "Create")
+    @Html.ActionLink("Search", "Search")
+</p>
+
+@foreach (var item in Model)
+{
+    <div class="weblogPost">  
+        <br/> 
+
+        <h3>
+            @Html.DisplayFor(modelItem => item.Title)
+        </h3>         
+        <p>
+            @Html.DisplayFor(modelItem => item.PostContent)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.Writer)
+        </p>       
+         <p>
+            @Html.DisplayFor(modelItem => item.PostDateTime)
+        </p>
+
+        <p>
+            @Html.ActionLink("Comment", "Index", "WeblogComment" , new { WeblogID = item.ID } , null)
+            <br/>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </p>
+    </div>
+}
+
+
+<input id="btnPrevious" type="button" value="Previous" draggable="true" />
+<input id="btnNext" type="button" value="Next" />
+<input id="currentPageIndex" type="hidden" value = @ViewBag.CurrentPageIndex /> 
+
+<script>
+@if (ViewBag.CurrentPageIndex > 1)
+{
+   @:$("#btnPrevious").attr("disabled");
+}
+else
+{
+   @:$("#btnPrevious").attr("disabled", true);
+       @:$("#btnPrevious").css("color", "Gray"); 
+}
+
+@if (ViewBag.CurrentPageIndex < ViewBag.LastPageIndex)
+{
+   @:$("#btnNext").attr("disabled");
+}
+else
+{
+   @:$("#btnNext").attr("disabled", true);
+   @:$("#btnNext").css("color", "Gray");
+}
+    </script>
+
+
+<br/>
+
+
+
+

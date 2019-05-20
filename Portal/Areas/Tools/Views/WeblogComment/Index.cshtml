@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Portal.DomainClasses.Models.WeblogComment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (Model.Count() > 0)
+{
+    <h3 class="col-md-offset-2">
+        @Html.Label(" Post Title"): @Html.Label(Model.First().WeblogPost.Title)
+    </h3>
+}
+
+<p>
+    @Html.ActionLink("New Comment", "Create", new { WeblogPostId = ViewBag.WeblogPostId }, new { @class = "btn btn-primary" })
+</p>
+
+@if (Model.Count() > 0)
+{
+
+
+    foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <div class="panel panel-info ">
+                    <h3 class="panel-heading">
+                        @Html.DisplayFor(modelItem => item.Writer)
+                    </h3>
+                    <p class="panel-body">
+                        @Html.DisplayFor(modelItem => item.Comment)
+                    </p>
+                    <div class="panel-footer">
+                        <p class="label label-info">
+                            @Html.DisplayFor(modelItem => item.CommentDateTime)
+                        </p>
+                        <br />
+                        <br />
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+                        @if (User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default" }) @:
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "MouseOverResizeImage";
+}
+
+<h2>Mouse Over Resize Image</h2>
+<hr />
+<img src="~/Files/Images/Pic2Resize.gif" onmouseover="image_mouseover_resize(this,164,230)"
+     onmouseout="image_mouseout_resize(this,164,230)" />
+<br />
+
+@section scripts{
+    <script src="~/Scripts/Meh/MehJavaScript.js"></script>
+}

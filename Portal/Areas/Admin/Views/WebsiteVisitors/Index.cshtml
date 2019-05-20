@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Portal.DomainClasses.Models.WebsiteVisitor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered table-striped table-hover table-condensed">
+    <tr>
+        <th>
+            @Html.ActionLink("Date", "Index", new { SortPropertyName = "Date" })
+            @*@Html.DisplayNameFor(model => model.Date)*@
+        </th>
+        <th>
+            @Html.ActionLink("HostAddress", "Index", new { SortPropertyName = "HostAddress" })
+        </th>
+        <th>
+            @Html.ActionLink("HostName", "Index", new { SortPropertyName = "HostName" })
+        </th>
+        <th>
+            @Html.ActionLink("Browser", "Index", new { SortPropertyName = "Browser" })
+        </th>
+        <th>
+            @Html.ActionLink("Url", "Index", new { SortPropertyName = "Url" })
+        </th>
+        <th>
+            @Html.ActionLink("UrlReferrer", "Index", new { SortPropertyName = "UrlReferrer" })
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HostAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HostName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Browser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlReferrer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default" }) 
+                @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-default" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class="btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

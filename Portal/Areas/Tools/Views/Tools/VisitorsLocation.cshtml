@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Visitors Location";
+}
+<script type="text/javascript" src="http://j.maxmind.com/app/geoip.js"></script>
+<script type="text/javascript" src="http://js.maxmind.com/js/apis/geoip2/v2.0/geoip2.js"></script>
+
+<h2>Visitors Location</h2>
+<hr />
+<h4>GeoIp 1</h4>
+<p>
+    <!-- (4) Your Location Base on your IP: -->
+    <br />Country Code:
+    <script type="text/javascript">    document.write(geoip_country_code());</script>
+    <br />Country Name:
+    <script type="text/javascript">    document.write(geoip_country_name());</script>
+    <br />City:
+    <script type="text/javascript">    document.write(geoip_city());</script>
+    <br />Region:
+    <script type="text/javascript">    document.write(geoip_region());</script>
+    <br />Region Name:
+    <script type="text/javascript">    document.write(geoip_region_name());</script>
+    <br />Latitude:
+    <script type="text/javascript">    document.write(geoip_latitude());</script>
+    <br />Longitude:
+    <script type="text/javascript">    document.write(geoip_longitude());</script>
+    <br />Postal Code:
+    <script type="text/javascript">    document.write(geoip_postal_code());</script>
+</p>
+
+<hr />
+
+<h4>GeoIp 2</h4>
+<p>
+    country: <span id="country"></span><br />
+    region: <span id="region"></span><br />
+    city: <span id="city"></span><br />
+    isp: <span id="isp"></span><br />
+    IP: <span id="ip"></span><br />
+    is proxy? <span id="proxy"></span><br />
+    latitude: <span id="latitude"></span><br />
+    longitude: <span id="longitude"></span><br />
+</p>
+
+@section Scripts{
+    <script>
+        $(function () {
+            geoip2.cityISPOrg(function (response) {
+                $("#country").html(response.country.names.en);
+                $("#region").html(response.most_specific_subdivision.names.en);
+                $("#city").html(response.city.names.en);
+                $("#isp").html(response.traits.isp);
+                $("#proxy").html(response.traits.is_anonymous_proxy);
+                $("#ip").html(response.traits.ip_address);
+                $("#latitude").html(response.location.latitude);
+                $("#longitude").html(response.location.longitude);
+            }, null, { w3cGeolocationDisabled: true });
+        })
+    </script>
+}

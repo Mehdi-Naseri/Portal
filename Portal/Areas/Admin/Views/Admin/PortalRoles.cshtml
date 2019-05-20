@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNet.Identity.EntityFramework;
+@model IEnumerable<IdentityRole>
+
+@{
+    ViewBag.Title = "Roles";
+}
+
+<h2>Roles</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateRole",null, new { @class="btn btn-primary"})
+</p>
+<table class="table-bordered table-hover table-striped ">
+    <tr>
+        <th>
+            Role Id
+        </th>
+        <th>
+            Role Name
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (IdentityRole Role1 in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Role1.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Role1.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditRole", new { id = Role1.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Delete", "DeleteRole", new { id = Role1.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

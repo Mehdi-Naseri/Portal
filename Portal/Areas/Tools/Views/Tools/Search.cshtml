@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<form class="form-inline">
+    <input type="text" id="Text2Search" name="Text2Search" class="form-control" />
+    <input type="submit" id="SubmitSearch" name="SubmitSearch" value="Search" class="btn btn-primary" />
+</form>
+
+<div id="reslutSearch"></div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('#SubmitSearch').click(function () {
+                var form = $(this).parent("form");
+                $.ajax({
+                    type: "POST",
+                    url: form.attr('action'),
+                    data: form.serialize()
+                })
+                .success(function (JsonResult) {
+                    $('#reslutSearch').replaceWith('<div id="reslutSearch">' + JsonResult + '</div>');
+                    //alert("Finished Successfuly");
+                })
+                .error(function () {
+                    alert("Error");
+                });
+                return false;
+            });
+        });
+    </script>
+}

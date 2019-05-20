@@ -1,0 +1,115 @@
+﻿@{
+    ViewBag.Title = "WebTools";
+}
+
+<h2>Web Tools</h2>
+<br />
+
+<section>
+    <h3>DNS</h3>
+    <form class="form-inline">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="input-group">
+                    <input type="text" id="Text2DNS" name="Text2DNS" placeholder="Ex: google.com" class="form-control" style="max-width:inherit" />
+                    <span class="input-group-btn">
+                        <input type="submit" id="SubmitDNS" name="SubmitDNS" value="DNS" class="btn btn-primary" />
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="reslutDNS"></div>
+    <hr />
+</section>
+
+<section>
+    <h3>Ping</h3>
+    <form class="form-inline">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="input-group">
+                    <input type="text" id="Text2Ping" name="Text2Ping" placeholder="Ex: google.com" class="form-control" style="max-width:inherit" />
+                    <span class="input-group-btn">
+                        <input type="submit" id="SubmitPing" name="SubmitPing" value="Ping" class="btn btn-primary" />
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="reslutPing"></div>
+    <hr />
+</section>
+
+<section>
+    <h3>Search</h3>
+    <form class="form-inline">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="input-group">
+                    <input type="text" id="Text2Search" name="Text2Search" placeholder="Ex: google.com" class="form-control" style="max-width:inherit" />
+                    <span class="input-group-btn">
+                        <input type="submit" id="SubmitSearch" name="SubmitSearch" value="Search" class="btn btn-primary" />
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+        
+    <div id="reslutSearch"></div>
+</section>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('#SubmitDNS').click(function () {
+                var form = $(this).parents("form");
+                $.ajax({
+                    type: "POST",
+                    url: "/Tools/Tools/DNS",
+                    data: form.serialize()
+                })
+                .success(function (JsonResult) {
+                    $('#reslutDNS').replaceWith('<div id="reslutDNS">' + JsonResult + '</div>');
+                    //alert("Finished Successfuly");
+                })
+                .error(function () {
+                    alert("Error");
+                });
+                return false;
+            });
+            $('#SubmitPing').click(function () {
+                var form = $(this).parents("form");
+                $.ajax({
+                    type: "POST",
+                    url: "/Tools/Tools/Ping",
+                    data: form.serialize()
+                })
+                .success(function (JsonResult) {
+                    $('#reslutPing').replaceWith('<div id="reslutPing">' + JsonResult + '</div>');
+                    //alert("Finished Successfuly");
+                })
+                .error(function () {
+                    alert("Error");
+                });
+                return false;
+            });
+            $('#SubmitSearch').click(function () {
+                var form = $(this).parents("form");
+                $.ajax({
+                    type: "POST",
+                    url: "/Tools/Tools/Search",
+                    data: form.serialize()
+                })
+                .success(function (JsonResult) {
+                    $('#reslutSearch').replaceWith('<div id="reslutSearch">' + JsonResult + '</div>');
+                    //alert("Finished Successfuly");
+                })
+                .error(function () {
+                    alert("Error");
+                });
+                return false;
+            });
+        });
+    </script>
+}

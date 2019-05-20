@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "iFrame";
+}
+
+<h2>iFrame</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="input-group">
+                <input type="text" class="form-control" name="URL" style="max-width:inherit;" />
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary" id="SubmitButton">Show</button>
+                </span>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row" id="iframeResult">
+    <iframe src=@ViewBag.URL style="height:100% ; width:100%" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation"></iframe>
+</div>
+
+@section styles{
+    <link href="~/Content/Meh/jQueryThemes/base/jquery-ui.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/Scripts/Meh/jQueryUI/jquery-ui-1.10.3.min.js"></script>
+    <script>
+        $(function () {
+            $("#iframeResult").resizable();
+        });
+    </script>
+}

@@ -1,0 +1,97 @@
+﻿@model Portal.DomainClasses.Models.WeblogComment
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>WeblogComment</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.Timestamp)
+        @Html.HiddenFor(model => model.WeblogPostId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Writer, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Writer, new { @class = "form-control" })*@
+                @Html.TextBoxFor(model => model.Writer, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Writer)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comment, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Comment, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Comment)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CommentDateTime, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class='input-group date' id='datetimepicker1' style="max-width:280px">
+                    @Html.TextBoxFor(model => model.CommentDateTime, new { @class = "form-control", id = "DateTime" })
+                    @Html.ValidationMessageFor(model => model.CommentDateTime)
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.WeblogPostId, "WeblogPostId", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("WeblogPostId", String.Empty)
+                    @Html.ValidationMessageFor(model => model.WeblogPostId)
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { Model.WeblogPostId })
+</div>
+
+
+@section Styles{
+    <link href="~/Content/PersianDateTimePicker2/skins/aqua/theme.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/Meh/PersianDateTimePicker2/jalali.js"></script>
+    <script src="~/Scripts/Meh/PersianDateTimePicker2/calendar.js"></script>
+    <script src="~/Scripts/Meh/PersianDateTimePicker2/calendar-setup.js"></script>
+    <script src="~/Scripts/Meh/PersianDateTimePicker2/calendar-fa.js"></script>
+    <script type="text/javascript">
+        Calendar.setup({
+            inputField: "DateTime",   // id of the input field
+            button: "datetimepicker1",   // trigger for the calendar (button ID)
+            ifFormat: "%Y/%m/%d %H:%M",       // format of the input field
+            showsTime: true,
+            dateType: 'jalali',
+            timeFormat: "24",
+            weekNumbers: false
+        });
+    </script>
+}

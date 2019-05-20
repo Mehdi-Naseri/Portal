@@ -1,0 +1,92 @@
+﻿======================================================
+~~~~~~~~~~~~~~~ Added ~~~~~~~~~~~~~~~
++ Personalize website such as contacts and about. (2012-06-27)
++ Use SQL Server Database. (2012-06-27)
++ Weblog
++ Weblog Comment
++ File Server.
++ JavaScript (MouseOverResizeImage)
++ Server & User Information.
++ Add Image Strip.
++ add google Map.
++ Add Rss.
++ Favorite Icon.
++ Add Paging.
++ Add Cashing.
++ Add AoutoComplete (with Json and Jquery).
++ OpenID and OAuth. (Google)
++ CSS:
+    linear-gradiant
+    radious Edges
++ Change CSS for optimized two language.
++ drop down Menu added.
++ Elmah
++ Globalization
+     1)URL
+	 2)Cookie
+	 3)UserLanguages
+	 4)Default (en)
++ jqGrid
++ Send Mail
++ Ping
++ DNS
++ Search
++ Users Management 
++ Role Management 
++ Persian Date Picker
++ Ajax + Jquery + Json
++ Ajax.BeginForm + Json
++ jQuery UI
++ Save & Retrive HTML tags into Database. (Weblog Content)
++ Proxy Page
++ Java Script Clock
++ jQuery SlideShow
++ HTML5 Video
++ Manage Users and Roles
++ Store website visitors Information.
++ Automatic DropDpwn Menu
++ Add BootStrap classes
++ Add Bootstratp SlideShow
++ Bootstrap Modal
++ Bootstrap Modal Ajax
++ Area
++ EF Code first:
+	+ Doamin Classe
+	+ DataLayer
+		+ Data Context
+		+ Migration
++ Persian DateTime (EntityFramework & SQL-Server)
+
+======================================================
+~~~~~~~~~~~~~~~ Need to be Fixed ~~~~~~~~~~~~~~~
+- use calendar (JQuery?)
+- use appropriate textbox and fields.
+- File uploder name must be read automatically.
++ Workin with webmail.
++ Ajax Search added but doesn't work well.
++ AutoComplete doesn't work fine.
++ Complete Server & User information.
++ Paging added but it is not Ajax.
++ Elmah (works normally but not with globalization)
++ In Global.asax.xs  bad addresses such as localhost\Page Should redirect to page not found(Error 404)
++ Send Mail Added but fill Port number with Ajax should be finished.
++ Redirect Page Show all page which change theme on original website.
++ fix Weather Reader.
++ Upgrade Simple Membership.
+
+
+======================================================
+~~~~~~~~~~~~~~~ Need to be Added ~~~~~~~~~~~~~~~
++ Save Website Visitors Information
++ Add live chat to my project (SignalR)
++ Add chart 
++ Windows & Form Authentication
+
+
+
+======================================================
+~~~~~~~~~~~~~~~ Notes ~~~~~~~~~~~~~~~
+- SQL Server Local DB:
+	DB Name: Portal
+	user: Admin
+	Pass: XXX

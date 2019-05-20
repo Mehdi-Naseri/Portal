@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "PersianDateTimePicker2";
+}
+
+<h2>Persian DateTime Picker 2</h2>
+
+<input id="date_input_2" type="text" />
+<img id="date_btn_2" src="~/Content/PersianDateTimePicker2/skins/cal.png" style="vertical-align: top;" />
+
+<div class="container">
+    <div class="row">
+        <div class='col-sm-3'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" id="DateTime"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Styles{
+    <link href="~/Content/PersianDateTimePicker2/skins/aqua/theme.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script src="~/Scripts/Meh/PersianDateTimePicker2/jalali.js"></script>
+    <script src="~/Scripts/Meh/PersianDateTimePicker2/calendar.js"></script>
+    <script src="~/Scripts/Meh/PersianDateTimePicker2/calendar-setup.js"></script>
+    <script src="~/Scripts/Meh/PersianDateTimePicker2/calendar-fa.js"></script>
+    <script type="text/javascript">
+        Calendar.setup({
+            inputField: "date_input_2",   // id of the input field
+            button: "date_btn_2",   // trigger for the calendar (button ID)
+            ifFormat: "%Y-%m-%d %H:%M",       // format of the input field
+            showsTime: true,
+            dateType: 'jalali',
+            timeFormat: "24",
+            weekNumbers: false
+        });
+    </script>
+    <script type="text/javascript">
+        Calendar.setup({
+            inputField: "DateTime",   // id of the input field
+            button: "datetimepicker1",   // trigger for the calendar (button ID)
+            ifFormat: "%Y/%m/%d %H:%M",       // format of the input field
+            showsTime: true,
+            dateType: 'jalali',
+            timeFormat: "24",
+            weekNumbers: false
+        });
+    </script>
+}

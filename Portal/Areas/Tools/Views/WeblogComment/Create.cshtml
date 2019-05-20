@@ -1,0 +1,67 @@
+﻿@model Portal.DomainClasses.Models.WeblogComment
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Write youe comment</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.CommentDateTime, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CommentDateTime)
+                @Html.ValidationMessageFor(model => model.CommentDateTime)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.Writer, new { @class = "control-label col-md-2" })*@
+            @Html.Label("Writer", "Your Name", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Writer, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Writer)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comment, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Comment)*@
+                @Html.TextAreaFor(model => model.Comment, 10, 35, new { @class = "form-control", style = "width:300px;max-width:1200px" })
+                @Html.ValidationMessageFor(model => model.Comment)
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.WeblogPostId, "WeblogPostId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("WeblogPostId", String.Empty)
+                @Html.ValidationMessageFor(model => model.WeblogPostId)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Post" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { WeblogPostId = ViewBag.WeblogPostId })
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

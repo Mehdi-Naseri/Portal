@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<hr />
+<section>
+    <h3>Manage Users</h3>
+    <ul>
+        <li>@Html.ActionLink("Users", "PortalUsers", "Admin")</li>
+        <li>@Html.ActionLink("Roles", "PortalRoles", "Admin")</li>
+        <li>@Html.ActionLink("Users in Roles", "PortalUsersInRoles", "Admin")</li>
+    </ul>
+</section>
+<hr />
+
+<section>
+    <h3>Website Statistics</h3>
+    <ul>
+        <li>@Html.ActionLink("Website Visitors", "Index", "WebsiteVisitors")</li>
+    </ul>
+</section>
+<hr>
+
+<section>
+    <h3>Manage Weblog Comments</h3>
+    <ul>
+        <li>@Html.ActionLink("All Comments", "CommentsAll", "WeblogComment", new { area = "Tools" }, null)</li>
+    </ul>
+</section> 

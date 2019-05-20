@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "Send Mail";
+}
+
+<h2 class="form-horizontal">Send Mail</h2>
+
+@*<form action="/Home/SendMail" method="post" enctype="multipart/form-data">*@
+@using (Html.BeginForm("SendMail", "Tools", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Fill this form</legend>
+        <div class="form-group">
+            <label for="Sendto" class="col-sm-2 control-label">Send to:</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="SendTo" name="SendTo" placeholder="Email Reciever">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Subject" class="col-sm-2 control-label">Subject:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" aria-multiline="true" id="Subject" name="Subject" placeholder="Email Subject">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Message" class="col-sm-2 control-label">Message:</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" id="Subject" name="Subject" spellcheck="true" placeholder="Email Subject" rows="3" aria-multiline="true"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Files" class="col-sm-2 control-label">Attach:</label>
+            <div class="col-sm-10">
+                <input type="file" class="form-control" name="Files" multiple="multiple" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="YourEmail" class="col-sm-2 control-label">Your Email:</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" aria-multiline="true" id="YourEmail" name="YourEmail" placeholder="Your Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Password" class="col-sm-2 control-label">Password:</label>
+            <div class="col-sm-10">
+                <input type="password" id="Password" class="form-control" aria-multiline="true" name="Password" placeholder="Your Email Password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="SMTPserver" class="col-sm-2 control-label">SMTP Server:</label>
+            <div class="col-sm-10">
+                <select id="SMTPserver" class="form-control" aria-multiline="true" name="SMTPserver" contenteditable="true">
+                    <option>smtp.gmail.com</option>
+                    <option>smtp.live.com</option>
+                    <option>smtp.mail.yahoo.com</option>
+                    <option>smtp.aol.com</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Port" class="col-sm-2 control-label">Port:</label>
+            <div class="col-sm-10">
+                <input type="text" id="Port" class="form-control" name="Port" value="587" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="checkbox col-sm-offset-3">
+                <label for="SSL">
+                    <input class="checkbox" type="checkbox" id="SSL" name="SSL" checked="checked" />
+                    Enable SSL
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            @*<div class="col-sm-3"></div>*@
+            <div class="col-sm-offset-3 col-sm-10">
+                <input type="submit" id="SubmitButton" value="Send Mail" class="btn btn-primary" />
+            </div>
+        </div>
+    </fieldset>
+}
+<div style="color: red">
+    @ViewBag.Result
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('#SMTPserver').change(function () {
+                var result = $("#SMTPserver").val();
+                if (result == "smtp.mail.yahoo.com") {
+                    $('#SSL').prop('checked', false);
+                    $('#Port').val(587);
+                };
+                if (result == "smtp.gmail.com") {
+                    $('#SSL').prop('checked', true);
+                    $('#Port').val(587);
+                };
+                if (result == "smtp.live.com") {
+                    $('#SSL').prop('checked', true);
+                    $('#Port').val(25);
+                };
+                if (result == "smtp.aol.com") {
+                    $('#SSL').prop('checked', false);
+                    $('#Port').val(587);
+                };
+            });
+
+            //$('#SubmitButton').click(function () {
+            //    var form = $(this).parent("form");
+            //    $.ajax({
+            //        type: "POST",
+            //        url: form.attr('action'),
+            //        data: form.serialize()
+            //    })
+            //    .success(function (JsonResult) {
+            //        alert(JsonResult);
+            //    })
+            //    .error(function () {
+            //        alert("Error!");
+            //    });
+            //    return false;
+            //});
+        });
+    </script>
+}
+
+
+
+@*<form class="navbar-form navbar-left clearfix" role="search">
+        <label class="control-label">Send to:</label>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default clearfix">Submit</button>
+    </form>*@

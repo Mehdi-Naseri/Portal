@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Portal.DomainClasses.Models.WeblogPost>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@*<form method="get">
+    @Html.Label("Writer:")
+    <input type="search" name="searchTerm" />
+    <input type="submit" value="Search" />
+</form>*@
+
+@using(Ajax.BeginForm(new AjaxOptions{
+             HttpMethod = "get",
+             InsertionMode = InsertionMode.Replace,
+             UpdateTargetId = "weblogList"}))
+{
+    @Html.Label("Writer:")
+    <input type="search" name="searchTerm" data-Meh--autocomplete="@Url.Action("Autocomplete")"/>
+    <input type="submit" value="Search" />
+}
+
+@Html.Partial("_SearchWeblog",Model)
+
+@section Scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}

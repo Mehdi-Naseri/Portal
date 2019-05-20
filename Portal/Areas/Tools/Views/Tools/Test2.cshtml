@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Test2";
+}
+
+<h2>Test2</h2>
+
+<input type="button" value="Show" id="button1" />
+<div id="div1">.....</div>
+<div id="div2">.....</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            $("#button1").click(function () {
+                alert("Test1");
+                var url = 'http://portalmvc.somee.com/';
+                $.get(url, function (data) {
+                    alert(data);
+                    //$.each(data.query.results.a, function () {
+                    //    $('div2').append('<div><a href="http://stackoverflow.com' + this.href + '">' + this.content + '</a></div>')
+                });
+            });
+
+            $("#div1").html("Test");
+            $("#div1").append("Test");
+            $('#div1').load("http://www.google.com img");
+        });
+    </script>
+}

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Portal.DomainClasses.Models.WeblogPost>
+
+
+<div id="weblogList">
+@foreach (var item in Model)
+{
+    <div class="weblogPost">  
+        <br/>
+        <h3>
+            @Html.DisplayFor(modelItem => item.Title)
+        </h3>         
+        <p>
+            @Html.DisplayFor(modelItem => item.PostContent)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.PostDateTime)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.Writer)
+        </p>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </p>
+    </div>
+}
+    </div>

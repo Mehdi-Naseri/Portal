@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Weather";
+}
+
+<h2>Weather</h2>
+
+@using (Html.BeginForm())
+{
+    <label for="text">Enter your text:</label>
+    <input type="text" id="Text" name="Text" />
+    <select>
+        <option>Shiraz  </option>
+        <option>Tehran  </option>
+        <option>Tabriz  </option>
+    </select>
+    <input type="submit" class="SubmitButton" id="Submit" name="Submit" />
+}
+
+<label id="textResult">.....</label>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('.SubmitButton').on("click", function () {
+                var temperature = 0;
+                var dfd = $.Deferred();
+                //var form = $(this).parent("form");
+                $.ajax({
+                    type: "POST",
+                    dataType: "jsonp",
+                    url: "http://api.openweathermap.org/data/2.5/forecast/daily?id=524901",
+                    data: form.serialize()
+                })
+                .success(function (JsonResult) {
+                    alert(JsonResult);
+                    //$('#textResult').replaceWith('<label id="textResult">' + JsonResult + '</label>');
+                    //alert("Finished Successfuly.");
+                    temperature = data.list[0].main.temp;
+                    alert(temperature);
+                    dfd.resolve(temperature);
+                })
+                .error(function (errorData) {
+                    alert("Error!" + errorData.status);
+                });
+                return false;
+            });
+        });
+    </script>
+}
+Result:
+@*{"coord":{"lon":-0.13,"lat":51.51},"sys":{"message":0.1086,"country":"GB","sunrise":1388649947,"sunset":1388678624},"weather":[{"id":800,"main":"Clear","description":"Sky is Clear","icon":"01n"}],"base":"gdps stations","main":{"temp":279.31,"pressure":993,"humidity":87,"temp_min":278.15,"temp_max":280.15},"wind":{"speed":4.6,"deg":240},"rain":{"3h":0.5},"clouds":{"all":0},"dt":1388649833,"id":2643743,"name":"London","cod":200}  *@

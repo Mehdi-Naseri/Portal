@@ -1,0 +1,47 @@
+﻿@model Portal.DomainClasses.Models.Upload
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Upload</h2>
+
+
+@*        Added Manualy By Mehdi*@
+@*<form action="/en/Upload/Create" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="file1">Filename:</label>
+            <input type="file" name="files1" id="file1" multiple="multiple">
+        </div>
+        <input type="submit" value="Upload">
+    </form>*@
+@*            Finished: Added Manualy By Mehdi*@
+
+@using (Html.BeginForm("Create", "Upload", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Select your file</legend>
+        <div class="form-group">
+            <label for="files1" class="control-label col-sm-2">Filename:</label>
+            <div class="col-sm-10">
+                <input type="file" name="files1" id="files1" multiple="multiple" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-md-10">
+                <input type="submit" value="Upload" class="btn btn-primary">
+            </div>
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

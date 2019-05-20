@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mehdi Naseri</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*جهت اضافه کردن استایلهاي جدید اضافه شده اند.*@
+    @RenderSection("styles", required: false)
+    <link href="~/Content/Meh/MEH.css" rel="stylesheet" />
+</head>
+<body>
+    @*اين خط جهت تغییر رنگ منو اضافه شده است*@
+    <div class="navbar navbar-inverse navbar-fixed-top pull-right">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Portal", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Weblog", "Index", "Weblog", new { area = "Tools" }, null)</li>
+                    <li>@Html.ActionLink("Upload", "Index", "Upload", new { area = "Tools" }, null)</li>
+
+                    <li class="dropdown">
+                        @*@Html.ActionLink("Tools", "Index", "Tools")*@
+                        <a href="/Tools/Tools" class="dropdown-toggle" data-toggle="dropdown">Tools<span class="caret"></span> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("DNS", "DNS", "Tools", new { area = "Tools" }, null)</li>
+                            <li>@Html.ActionLink("Ping", "ServerInformation", "Tools", new { area = "Tools" }, null)</li>
+                            <li>@Html.ActionLink("Redirect Page", "RedirectPage", "Tools", new { area = "Tools" }, null)</li>
+                            <li>@Html.ActionLink("Server Information", "ServerInformation", "Tools", new { area = "Tools" }, null)</li>
+                            <li>@Html.ActionLink("Your System", "UsersInformation", "Tools", new { area = "Tools" }, null)</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Web Tools", "WebTools", "Tools", new { area = "Tools" }, null)</li>
+                            <li>@Html.ActionLink("Finished Tools", "FinishedTools", "Tools", new { area = "Tools" }, null)</li>
+                            <li>@Html.ActionLink("All Tools", "Index", "Tools", new { area = "Tools" }, null)</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Admin", "Index", "Admin", new { area = "Admin" }, null)</li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p class="text-center">&copy; @DateTime.Now.Year - Mehdi Naseri</p>
+            @*<p class="col-md-4 col-md-offset-4">&copy; @DateTime.Now.Year - Mehdi Naseri</p>*@
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/Meh/MehJavaScript.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

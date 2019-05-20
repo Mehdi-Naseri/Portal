@@ -1,0 +1,42 @@
+﻿@model Portal.DomainClasses.Models.WeblogPost
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Weblog Post</legend>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostContent)
+        </dt>
+        <dd>
+            @Html.Raw(Model.PostContent.Replace(Environment.NewLine, "<br/>"))
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Writer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Writer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostDateTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostDateTime)
+        </dd>
+    </dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Persian DateTime Picker";
+}
+
+<h2>Persian DateTime Picker</h2>
+
+<div class="container">
+    <div class="row">
+        <div class='col-sm-3'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles{
+    <link href="~/Content/Meh/BootstrapDateTimePicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/Scripts/Meh/BootstrapDateTimePicker/moment.min.js"></script>
+    <script src="~/Scripts/Meh/BootstrapDateTimePicker/bootstrap-datetimepicker.min.js"></script>
+
+    <script>
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+                //language: 'fa-IR'
+            });
+        });
+    </script>
+}

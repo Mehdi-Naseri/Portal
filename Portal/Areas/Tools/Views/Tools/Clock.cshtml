@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Clock";
+}
+@section styles{
+    <style type="text/css">
+        .clock {
+            float: left;
+            display: block;
+            margin: 10px;
+            padding: 10px;
+            background-color: #fff;
+            -moz-box-shadow: 3px 3px 3px #999;
+            -moz-border-radius: 5px;
+            -webkit-box-shadow: 3px 3px 3px #999;
+            -webkit-border-radius: 5px;
+        }
+    </style>
+}
+
+<h2>Clock</h2>
+<hr />
+<h3>JavaScript Clocks</h3>
+
+<label id="clock1"></label>
+<div id="CoolClockdemo"></div>
+
+@section scripts{
+    @*نمایش ساعت بصورت دیجیتالی*@
+    <script>
+        var timerID = null;
+        var timerRunning = false;
+        function stopclock() {
+            if (timerRunning)
+                clearTimeout(timerID);
+            timerRunning = false;
+        };
+        function showtime() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth();
+            var day = now.getDate();
+            var dateValue = year + "." + month + "." + day;
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds()
+            var timeValue = "" + ((hours > 12) ? hours - 12 : hours)
+            timeValue += ((minutes < 10) ? ":0" : ":") + minutes
+            timeValue += ((seconds < 10) ? ":0" : ":") + seconds
+            timeValue += (hours >= 12) ? " P.M." : " A.M."
+            //document.clock.clock2.value = timeValue;
+            $("#clock1").html(dateValue + "  " + timeValue);
+            timerID = setTimeout("showtime()", 1000);
+            timerRunning = true;
+        };
+        function startclock() {
+            // Make sure the clock is stopped
+            stopclock();
+            showtime();
+        };
+        $("document").ready(function () {
+            startclock();
+        });
+    </script>
+
+    @*ساعت CoolClock*@
+    <script src="~/Scripts/Meh/CoolClock/coolclock.js"></script>
+    <script src="~/Scripts/Meh/CoolClock/moreskins.js"></script>
+    <!--[if IE]><![endif]-->
+    <script src="~/Scripts/Meh/CoolClock/excanvas.js"></script>
+    <script>
+        $(function () {
+            var shuffle = function () { return 0.5 - Math.random(); };
+            var clocks = [];
+            for (var skin in CoolClock.config.skins) {
+                if (skin != 'chunkySwissOnBlack') {
+                    clocks.push('<div class="clock"><canvas class="CoolClock:' + skin + '"                ></canvas></div>');
+                    clocks.push('<div class="clock"><canvas class="CoolClock:' + skin + ':::::logClock"   ></canvas></div>');
+                    clocks.push('<div class="clock"><canvas class="CoolClock:' + skin + ':::::logClockRev"></canvas></div>');
+                }
+            };
+            // shuffle three times for luck
+            $('#CoolClockdemo').append(clocks.sort(shuffle).sort(shuffle).sort(shuffle).join('\n'));
+            CoolClock.findAndCreateClocks();
+        });
+    </script>
+
+}
+

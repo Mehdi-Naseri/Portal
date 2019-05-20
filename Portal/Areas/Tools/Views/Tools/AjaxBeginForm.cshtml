@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Ajax.BeginForm-Json";
+}
+
+<h2>Ajax.BeginForm - Json</h2>
+
+@using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "textResult" }))
+{
+    <div class="form-inline">
+        <label for="Text" class="control-label">Text:</label>
+        <input type="text" id="Text" name="Text" class="form-control"/>
+        <input type="submit" class="btn btn-primary"  id="Submit" name="Submit" />
+    </div>
+}
+<br/>
+<label id="textResult">. . . . .</label>
+
+@section Scripts{
+    <script src="~/Scripts/Meh/jquery.unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+}

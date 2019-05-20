@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP MVC Tools</h1>
+    <p class="lead">This website has been made for evaluation of new technologies.</p>
+    <p>@Html.ActionLink("Tools »", "Index", "Tools", new { area = "Tools" }, new { @class = "btn btn-primary btn-large" })</p>
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-sm-6">
+        <h2>Weblog</h2>
+        <p>
+            Write what ever you have in your mind.
+        </p>
+        <p> @Html.ActionLink("Go »", "Index", "Weblog", new { area = "Tools" }, new { @class = "btn btn-default" }) </p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <h2>File Host</h2>
+        <p>Upload and download your files from every where.</p>
+        <p> @Html.ActionLink("Go »", "Index", "Upload", new { area = "Tools" }, new { @class = "btn btn-default" }) </p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <h2>Server Information</h2>
+        <p></p>
+        <p>@Html.ActionLink("Go »", "ServerInformation", "Tools", new { area = "Tools" }, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <h2>Your System</h2>
+        <p></p>
+        <p>@Html.ActionLink("Go »", "UsersInformation", "Tools", new { area = "Tools" }, new { @class = "btn btn-default" })</p>
+    </div>
+</div>
+<hr class="visible-md visible-lg" />
+<div class="row">
+    <div class="col-md-3 col-sm-6">
+        <h2>Google Map</h2>
+        <p></p>
+        <p>@Html.ActionLink("Go »", "GoogleMap", "Tools", new { area = "Tools" }, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <h2>RSS</h2>
+        <p></p>
+        <p>@Html.ActionLink("Go »", "RSS", "Tools", new { area = "Tools" }, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <h2>DNS</h2>
+        <p></p>
+        <p>@Html.ActionLink("Go »", "DNS", "Tools", new { area = "Tools" }, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <h2>Ping</h2>
+        <p></p>
+        <p>@Html.ActionLink("Go »", "Ping", "Tools", new { area = "Tools" }, new { @class = "btn btn-default" })</p>
+    </div>
+</div>
+<hr class="visible-md visible-lg" />
+<div class="row">
+    <div class="col-md-3 col-sm-6">
+        <h2>Search</h2>
+        <p></p>
+        <p>@Html.ActionLink("Go »", "Search", "Tools", new { area = "Tools" }, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <h2>Send Mail</h2>
+        <p></p>
+        <p>@Html.ActionLink("Go »", "SendMail", "Tools", new { area = "Tools" }, new { @class = "btn btn-default" })</p>
+    </div>
+    <div class="col-md-3 col-sm-6">
+        <h2>Redirect Page</h2>
+        <p></p>
+        <p>@Html.ActionLink("Go »", "RedirectPage", "Tools", new { area = "Tools" }, new { @class = "btn btn-default" })</p>
+    </div>
+
+</div>

@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "jQuery UI";
+}
+@section styles{
+    @Styles.Render("~/Content/Meh/jQueryThemes/base/jquery-ui.css")
+}
+@section Scripts{
+    
+    <script src="~/Scripts/Meh/jQueryUI/jquery-ui-1.10.3.min.js"></script>
+
+    <script type="text/javascript">
+        $("document").ready(function () {
+            $("#accordion").accordion().draggable();
+            $("#draggable").draggable();
+            $("#draggable").css("border", "3px solid aqua");
+            $("#datepicker").datepicker().draggable();
+            $("#dialog").dialog().draggable();
+        });
+    </script>
+
+    <style>
+        #accordion {
+            width: 300px;
+        }
+
+        #draggable {
+            width: 100px;
+        }
+
+        #datepicker {
+            width: 200px;
+        }
+    </style>
+
+}
+
+<h3>jQuery Examples:</h3>
+
+
+<div id="accordion">
+    <a href="#">First Header</a>
+    <div>Content1</div>
+    <a href="#">Second Header</a>
+    <div>Content2</div>
+</div>
+
+<br />
+
+<div id="draggable">
+    <a href="#">Header</a>
+    <div>Drag Me.</div>
+</div>
+<br />
+<div id="datepicker">
+</div>
+<br />
+<div id="dialog">
+    <div>Are are you ready?</div>
+</div>

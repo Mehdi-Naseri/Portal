@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "GoogleMap";
+}
+
+<h2>GoogleMap</h2>
+<br />
+<div id="map" style="height: 600px; width: 800px" />
+
+
+<script type="text/javascript" src="http://js.maxmind.com/js/apis/geoip2/v2.0/geoip2.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+@*<script type="text/javascript" src="http://j.maxmind.com/app/geoip.js"></script>*@
+
+<script>
+    $(function () {
+
+    })
+</script>
+
+<script type="text/javascript">
+    var map;
+    function initialize() {
+        var geoip2Latitude;
+        var geoip2Longitude;
+        geoip2.cityISPOrg(function (response) {
+            geoip2Latitude = response.location.latitude;
+            geoip2Longitude = response.location.longitude;
+        }, null, { w3cGeolocationDisabled: true });
+        var options = {
+            zoom: 7,
+            center: new google.maps.LatLng(geoip2Latitude, geoip2Longitude),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: true,
+            mapTypeControlOptions:
+            {
+                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                poistion: google.maps.ControlPosition.TOP_RIGHT,
+                mapTypeIds: [google.maps.MapTypeId.ROADMAP,
+                  google.maps.MapTypeId.TERRAIN,
+                  google.maps.MapTypeId.HYBRID,
+                  google.maps.MapTypeId.SATELLITE]
+            },
+            navigationControl: true,
+            navigationControlOptions:
+            {
+                style: google.maps.NavigationControlStyle.ZOOM_PAN
+            },
+            scaleControl: true,
+            disableDoubleClickZoom: true,
+            draggable: false,
+            streetViewControl: true,
+            draggableCursor: 'move'
+        };
+        map = new google.maps.Map(document.getElementById("map"), options);
+        // Add Marker and Listener
+        var latlng = new google.maps.LatLng(geoip2Latitude, geoip2Longitude);
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: 'Click Me!'
+        });
+        var infowindow = new google.maps.InfoWindow({
+            content: 'Location info:<br/>Country Name:<br/>LatLng:'
+        });
+        google.maps.event.addListener(marker, 'click', function () {
+            // Calling the open method of the infoWindow
+            infowindow.open(map, marker);
+        });
+    }
+    window.onload = initialize;
+</script>
+

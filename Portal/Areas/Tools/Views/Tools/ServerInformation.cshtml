@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "Server Information";
+}
+
+<h2>Server Information</h2>
+<hr>
+
+<h3>Request.ServerVariables </h3>
+<dl class="dl-horizontal">
+
+    <dt >
+        Request.ServerVariables['LOGON_USER']:
+    </dt>
+    <dd>@Request.ServerVariables["LOGON_USER"].ToString()</dd>
+
+    <dt >
+        Request.ServerVariables['LOCAL_ADDR']:
+    </dt>
+    <dd>@Request.ServerVariables["LOCAL_ADDR"].ToString()</dd>
+
+    <dt >
+        Request.ServerVariables['PATH_INFO']:
+    </dt>
+    <dd>@Request.ServerVariables["PATH_INFO"].ToString()</dd>
+
+    <dt >
+        Request.ServerVariables['PATH_TRANSLATED']:
+    </dt>
+    <dd>@Request.ServerVariables["PATH_TRANSLATED"].ToString()</dd>
+
+    <dt >
+        Request.ServerVariables['SERVER_NAME']:
+    </dt>
+    <dd>@Request.ServerVariables["SERVER_NAME"].ToString()</dd>
+
+    <dt >
+        Request.ServerVariables['SERVER_PORT']:
+    </dt>
+    <dd>@Request.ServerVariables["SERVER_PORT"].ToString()</dd>
+
+    <dt>
+        Request.ServerVariables['APPL_PHYSICAL_PATH']:
+    </dt>
+    <dd> @Request.ServerVariables["APPL_PHYSICAL_PATH"].ToString()</dd>
+
+    <dt >
+        Request.ServerVariables[REMOTE_ADDR]:
+    </dt>
+    <dd>@Request.ServerVariables["REMOTE_ADDR"].ToString()</dd>
+
+    <dt >
+        Request.ServerVariables[AUTH_USER]:
+    </dt>
+    <dd>@Request.ServerVariables["AUTH_USER"].ToString()</dd>
+
+</dl>
+
+<hr />
+
+<h3>Environment</h3>
+<dl class="dl-horizontal">
+    <dt>
+        Environment.OSVersion:
+    </dt>
+    <dd>
+        @Environment.OSVersion
+    </dd>
+
+    <dt>
+        64 Bit Operating System:
+    </dt>
+    <dd> @Environment.Is64BitOperatingSystem</dd>
+
+    <dt>
+        Environment.SystemDirectory:
+    </dt>
+    <dd> @Environment.SystemDirectory</dd>
+
+    <dt>
+        Environment.ProcessorCount:
+    </dt>
+    <dd>@Environment.ProcessorCount</dd>
+
+    <dt>
+        Environment.UserDomainName:
+    </dt>
+    <dd>@Environment.UserDomainName</dd>
+
+    <dt>
+        Environment.UserName:
+    </dt>
+    <dd>@Environment.UserName</dd>
+
+    <dt>
+        Environment.SystemPageSize:
+    </dt>
+    <dd>@Environment.SystemPageSize</dd>
+
+    <dt>  Environment.Version: </dt>
+    <dd>@Environment.Version</dd>
+
+</dl>
+
+<hr/>
+
+@*DriveInfo*@
+<h3>DriveInfo</h3>
+<dl class="dl-horizontal">
+    @foreach (System.IO.DriveInfo DriveInfo1 in System.IO.DriveInfo.GetDrives())
+    {
+        try
+        {
+            WriteLiteral(string.Format("<dt>Drive: </dt><dd>{0}</dd> <dt> VolumeLabel: </dt><dd> {1} </dd> <dt> DriveType: </dt><dd>{2}</dd> <dt>DriveFormat: </dt><dd>{3} </dd> <dt> TotalSize: </dt><dd>{4}</dd> <dt>AvailableFreeSpace: </dt><dd>{5}</dd><br/>",
+               DriveInfo1.Name, DriveInfo1.VolumeLabel, DriveInfo1.DriveType, DriveInfo1.DriveFormat, DriveInfo1.TotalSize, DriveInfo1.AvailableFreeSpace));
+        }
+        catch
+        {
+        }
+    }
+</dl>
+
+<hr/>
+
+<div>
+    <h3>Server.HtmlEncode</h3>
+    <p> @Html.Raw(ViewBag.ServerVariables) </p>
+</div>
+
+
+
+@section Styles{
+    <style>
+        .dl-horizontal dt {
+            /*white-space:normal;*/
+            width: 350px;
+        }
+        .dl-horizontal dd {
+            /*white-space:normal;*/
+            margin-left:370px;
+        }
+    </style>
+}

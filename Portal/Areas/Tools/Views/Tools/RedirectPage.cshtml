@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Redirect Page";
+}
+
+<h2>Redirect Page</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="input-group">
+                <input type="text" class="form-control" name="URL" id="InputUrl" style="max-width:inherit;" placeholder="http://www.google.com" />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary" id="SubmitButton">Go</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-group" data-toggle="button">
+        <label class="btn btn-info active">
+            <input type="radio" name="ResultHolder" value="iframe" checked="checked" />
+            iframe
+        </label>
+        <label class="btn btn-info active">
+            <input type="radio" name="ResultHolder" value="div" />
+            div
+        </label>
+    </div>
+
+    @Html.Hidden("ReturnType", "Save")
+    <button type="submit" id="buttonSave" class="btn btn-info">Save</button>
+}
+    
+
+<section class="row">
+    <div class="divResizeable" id="divResultIframe" hidden="hidden">
+        <iframe id="iframeResult" sandbox="allow-forms allow-same-origin allow-scripts allow-top-navigation">You can't see iFrames.</iframe>
+    </div>
+    <div class="divResizeable" id="divResultDiv" hidden="hidden">
+        <div id="divResult"></div>
+    </div>
+</section>
+
+@section styles{
+    <link href="~/Content/Meh/jQueryThemes/base/jquery-ui.css" rel="stylesheet" />
+    <style>
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /*.radioButtons {
+            float: left;
+            width: 20px;
+        }
+
+        .radioLabel {
+            margin: 5px;
+        }*/
+    </style>
+}
+@section Scripts{
+    <script src="~/Scripts/Meh/jQueryUI/jquery-ui-1.10.3.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".divResizeable").resizable();
+            $('#SubmitButton').click(function () {
+                if ($('input[type=radio]:checked').val() != "Save") {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Tools/Tools/RedirectPage",
+                        data: { URL: $("#InputUrl").val(), ReturnType: $('input[type=radio]:checked').val() }
+                    })
+                    .success(function (stringJsonResult) {
+                        if ($('input[type=radio]:checked').val() == "iframe") {
+                            $("#divResultDiv").attr("hidden", "hidden");
+                            $("#divResultIframe").removeAttr("hidden");
+                            $('#iframeResult').contents().find('body').html(stringJsonResult);
+                        }
+                        else if ($('input[type=radio]:checked').val() == "div") {
+                            $("#divResultIframe").attr("hidden", "hidden");
+                            $("#divResultDiv").removeAttr("hidden");
+                            $('#divResult').html(stringJsonResult);
+                        }
+                        else if ($('input[type=radio]:checked').val() == "Save") {
+                            alert("Save");
+                            $("#divResultIframe").attr("hidden", "hidden");
+                            $("#divResultIframe").attr("hidden", "hidden");
+                            //$('#divResult').html(stringJsonResult);
+                        }
+                    })
+                    .error(function () {
+                        alert("Error");
+                    });
+                    return false;
+                }
+                else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Tools/Tools/RedirectPageReturnFile",
+                        data: { URL: $("#InputUrl").val(), ReturnType: $('input[type=radio]:checked').val() }
+                    })
+                    //.success(function () {
+                    //    alert("Save File");
+                    //})
+                }
+            });
+        });
+    </script>
+}

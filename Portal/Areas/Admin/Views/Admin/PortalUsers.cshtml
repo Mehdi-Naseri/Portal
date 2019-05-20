@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityUser>
+
+@{
+    ViewBag.Title = "Portal Users";
+}
+
+<h2>Portal Users</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateUser", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table-bordered table-hover table-striped table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditUser", new { id = item.Id }, new { @class = "btn btn-default" }) 
+                @Html.ActionLink("Delete", "DeleteUser", new { id = item.Id }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

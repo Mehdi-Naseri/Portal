@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "BootstrapModalAjax";
+}
+
+<h2>Bootstrap Modal Ajax</h2>
+<br/>
+
+<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Launch Modal</button>
+
+
+@*Bootstrap Modal*@
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h3 class="modal-title">Modal Title</h3>
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                <fieldset>
+                    <div class="modal-body">
+                        <p> Modal Body</p>
+                        <input type="text" id="Text" name="Text" />
+                    </div>
+                </fieldset>
+            }
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="submit" class="SubmitButton btn btn-primary" id="Submit" name="Submit" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<label id="textResult">.....</label>
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('.SubmitButton').on("click", function () {
+                //var form = $(this).parent("form");
+                var form = $('form');
+                $.ajax({
+                    type: "POST",
+                    url: form.attr('action'),
+                    data: form.serialize()
+                })
+                .success(function (JsonResult) {
+                    $('#textResult').replaceWith('<label id="textResult">' + JsonResult + '</label>');
+                    //$('#myModal').modal('hide');
+                    alert("Finished Successfuly.");
+                })
+                .error(function () {
+                    alert("Failure!");
+                });
+                return false;
+            });
+        });
+    </script>
+}

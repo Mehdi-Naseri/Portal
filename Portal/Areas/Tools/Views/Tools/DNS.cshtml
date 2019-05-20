@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "DNS";
+}
+
+<h2>DNS</h2>
+
+<form class="form-inline">
+    <input type="text" id="Text2DNS" name="Text2DNS" placeholder="Ex: google.com" class="form-control" />
+    <input type="submit" id="SubmitDNS" name="SubmitDNS" value="DNS" class="btn btn-primary" />
+</form>
+
+<div id="reslutDNS"></div>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('#SubmitDNS').click(function () {
+                var form = $(this).parent("form");
+                $.ajax({
+                    type: "POST",
+                    url: form.attr('action'),
+                    data: form.serialize()
+                })
+                .success(function (JsonResult) {
+                    $('#reslutDNS').replaceWith('<div id="reslutDNS">' + JsonResult + '</div>');
+                    //alert("Finished Successfuly");
+                })
+                .error(function () {
+                    alert("Error");
+                });
+                return false;
+            });
+        });
+    </script>
+}

@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Persian DateTime Picker 1";
+}
+
+<h2>Persian DateTime Picker 1</h2>
+
+<input type="datetime" id="DateTime" class="form-control" />
+
+@section Styles{
+    <link href="~/Content/Meh/BootstrapDateTimePicker/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/Scripts/Meh/BootstrapDateTimePicker/moment.min.js"></script>
+    <script src="~/Scripts/Meh/BootstrapDateTimePicker/bootstrap-datetimepicker.min.js"></script>
+    <script>
+        $(function () {
+            $("#DateTime").datetimepicker();
+        });
+    </script>
+}

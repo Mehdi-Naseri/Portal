@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "UsersInformation";
+}
+
+
+<h2>Users Information</h2>
+<hr />
+<div>
+    <h3>JavaScript</h3>
+    <dl class="dl-horizontal">
+        <dt>
+        Resolution:
+            </dt>
+        <dd>
+            <script type="text/javascript">
+                // get width of scree
+                document.write(screen.width);
+                // get height of screen
+                document.write('*');
+                document.write(screen.height);
+            </script>
+        </dd>
+    </dl>
+</div>
+<hr />
+
+<section>
+    <h3>Request</h3>
+    <dl class="dl-horizontal">
+        <dt>
+            Request.LogonUserIdentity:
+        </dt>
+        <dd>
+            @Request.LogonUserIdentity
+        </dd>
+        <dt>
+            Request.UserHostAddress:
+        </dt>
+        <dd>
+            @Request.UserHostAddress
+        </dd>
+        <dt>
+            Request.UserHostName:
+        </dt>
+        <dd>
+            @Request.UserHostName
+        </dd>
+        <dt>
+            Request.UserAgent:
+        </dt>
+        <dd>
+            @Request.UserAgent
+        </dd>
+        <dt>
+            Request.Url:
+        </dt>
+        <dd>
+            @Request.Url
+        </dd>
+        <dt>
+            Request.UrlReferrer:
+        </dt>
+        <dd>
+            @Request.UrlReferrer
+        </dd>
+        <dt>
+            Request.Cookies:
+        </dt>
+        <dd>
+            @Request.Cookies
+        </dd>
+        <dt>
+            Request.Browser.Browser:
+        </dt>
+        <dd>
+            @Request.Browser.Browser
+        </dd>
+        <dt>
+            Request.UserLanguages:
+        </dt>
+        <dd>
+            @for (int count = 0; count < Request.UserLanguages.Length; count++)
+            {
+                WriteLiteral(string.Format("({0})", Request.UserLanguages[count]));
+            }
+        </dd>
+        <dt>
+            Request.Browser.Platform:
+        </dt>
+        <dd>
+            @Request.Browser.Platform
+        </dd>
+        <dt>
+            Request.Browser.Version:
+        </dt>
+        <dd>
+            @Request.Browser.Version
+        </dd>
+        <dt>
+            Request.Browser.EcmaScriptVersion:
+        </dt>
+        <dd>
+            @Request.Browser.EcmaScriptVersion
+        </dd>
+        <dt>
+            Request.Browser.ScreenBitDepth:
+        </dt>
+        <dd>
+            @Request.Browser.ScreenBitDepth
+        </dd>
+        <dt>
+            Request.Browser.ScreenCharactersHeight:
+        </dt>
+        <dd>
+            @Request.Browser.ScreenCharactersHeight
+        </dd>
+        <dt>
+            Request.Browser.ScreenCharactersWidth:
+        </dt>
+        <dd>
+            @Request.Browser.ScreenCharactersWidth
+        </dd>
+        <dt>
+            Request.Browser.ScreenPixelsHeight:
+        </dt>
+        <dd>
+            @Request.Browser.ScreenPixelsHeight
+        </dd>
+        <dt>
+            Request.Browser.ScreenPixelsWidth:
+        </dt>
+        <dd>
+            @Request.Browser.ScreenPixelsWidth
+        </dd>
+    </dl>
+</section>
+
+
+@section Styles{
+    <style>
+        .dl-horizontal dt {
+            /*white-space:normal;*/
+            width: 350px;
+        }
+
+        .dl-horizontal dd {
+            /*white-space:normal;*/
+            margin-left: 370px;
+        }
+    </style>
+}

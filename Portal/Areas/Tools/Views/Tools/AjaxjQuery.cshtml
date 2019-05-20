@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Ajax - jQuery - Json";
+}
+
+<h2>Ajax - jQuery - Json</h2>
+
+<form class="form-inline">
+        <label for="text" class="control-label">Enter your text:</label>
+        <input type="text" id="Text" name="Text" class="form-control"/>
+    <input type="submit" class="btn btn-primary" id="SubmitButton" name="Submit" />
+</form>
+
+<br/>
+<label id="textResult">.....</label>
+
+@section Scripts{
+    <script type="text/javascript">
+        $(function () {
+            $('#SubmitButton').on("click", function () {
+                var form = $(this).parent("form");
+                $.ajax({
+                    type: "POST",
+                    url: form.attr('action'),
+                    data: form.serialize()
+                })
+                .success(function (JsonResult) {
+                    $('#textResult').replaceWith('<label id="textResult">' + JsonResult + '</label>');
+                    alert("Finished Successfuly.");
+                })
+                .error(function () {
+                    alert("Error!");
+                });
+                return false;
+            });
+        });
+    </script>
+}
